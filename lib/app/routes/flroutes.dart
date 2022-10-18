@@ -2,7 +2,7 @@ import 'package:flutter_eden/eden.dart';
 
 import 'modules/account_route.dart';
 
-class FlRoutes {
+class FLRoutes {
   static final account = AccountRoute();
   static final message = AccountRoute();
   static List<GetPage> getPages() {

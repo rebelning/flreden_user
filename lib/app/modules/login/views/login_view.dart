@@ -1,9 +1,10 @@
-import 'package:flrousale/app/routes/flroutes.dart';
+import 'package:flrousale/app/modules/login/controllers/login_controller.dart';
+
 import 'package:flrousale/values/flr_colors.dart';
 import 'package:flutter_eden/eden.dart';
 
 class LoginView {
-  Widget renderLoginView(BuildContext context) {
+  Widget renderLoginView(BuildContext context, LoginController _controller) {
     return Container(
       padding: EdgeInsets.only(left: 70.rpx, right: 70.rpx),
       child: ListView(
@@ -11,13 +12,13 @@ class LoginView {
           SizedBox(height: 170.rpx),
           _renderLogo(context),
           SizedBox(height: 100.rpx),
-          _renderInput(context),
+          _renderInput(context, _controller),
           SizedBox(height: 20.rpx),
-          _renderCodeInput(context),
+          _renderCodeInput(context, _controller),
           SizedBox(height: 32.rpx),
           _renderPrivacyView(context),
           SizedBox(height: 100.rpx),
-          _renderComfirm(context),
+          _renderComfirm(context, _controller),
           SizedBox(height: 50.rpx),
           _renderTextComfirm(context),
         ],
@@ -38,7 +39,7 @@ class LoginView {
     );
   }
 
-  Widget _renderInput(BuildContext context) {
+  Widget _renderInput(BuildContext context, LoginController _controller) {
     return Container(
       decoration: BoxDecoration(
         color: FLRColors.black04,
@@ -52,11 +53,14 @@ class LoginView {
           fontSize: 30.rpx,
         ),
         showBorder: false,
+        onChanged: (value) {
+          _controller.setUsername(value);
+        },
       ),
     );
   }
 
-  Widget _renderCodeInput(BuildContext context) {
+  Widget _renderCodeInput(BuildContext context, LoginController _controller) {
     return Container(
       decoration: BoxDecoration(
         color: FLRColors.black04,
@@ -73,6 +77,9 @@ class LoginView {
                 fontSize: 30.rpx,
               ),
               showBorder: false,
+              onChanged: (value) {
+                _controller.setPassword(value);
+              },
             ),
           ),
           _renderVerifyCode(),
@@ -193,15 +200,18 @@ class LoginView {
   }
 
   //
-  Widget _renderComfirm(BuildContext context) {
+  Widget _renderComfirm(BuildContext context, LoginController _controller) {
     return Container(
-      height: 90.rpx,
+      height: 95.rpx,
       child: ButtonWidget(
         label: "登录/注册",
         primary: FLRColors.color3792F0,
         onPrimary: Colors.white,
         fontSize: 32.rpx,
-        onPressed: () {},
+        fontHeight: 1.2,
+        onPressed: () {
+          _controller.login();
+        },
         buttonType: ButtonType.ELEVATED,
       ),
     );

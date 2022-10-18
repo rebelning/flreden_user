@@ -16,6 +16,6 @@ class LoginIndex extends EdenBaseWidget<LoginController> with LoginView {
 
   @override
   Widget buildBody(BuildContext context, LoginController _controller) {
-    return renderLoginView(context);
+    return renderLoginView(context, _controller);
   }
 }
