@@ -2,6 +2,8 @@ import 'package:flrousale/app/modules/login/controllers/login_controller.dart';
 import 'package:flrousale/app/modules/login/views/login_index.dart';
 import 'package:flrousale/app/modules/register/controllers/register_controller.dart';
 import 'package:flrousale/app/modules/register/views/register_index.dart';
+import 'package:flrousale/app/modules/sms/controllers/sms_controller.dart';
+import 'package:flrousale/app/modules/sms/views/sms_index.dart';
 import 'package:flrousale/domain/repositories/impl/login/login_provider.dart';
 import 'package:flrousale/domain/repositories/impl/login/login_respository_impl.dart';
 import 'package:flrousale/domain/repositories/impl/register/register_provider.dart';
@@ -22,6 +24,9 @@ class AccountRoute extends EdenBaseRoute {
 
   String get register => prefix + "/register";
 
+  ///
+  String get smsIndex => prefix + "/smsIndex";
+
   @override
   List<GetPage> getRoutePages() {
     return [
@@ -29,30 +34,36 @@ class AccountRoute extends EdenBaseRoute {
         name: home,
         page: () => AccountIndex(),
         bindingsBuilder: () {
-          Get.lazyPut(() => AccountController());
+          edenLazyPut(() => AccountController());
         },
       ),
       routePage(
         name: login,
         page: () => LoginIndex(),
         bindingsBuilder: () {
-          Get.lazyPut<ILoginProvider>(() => LoginProvider());
-          Get.lazyPut<ILoginRespository>(
-              () => LoginRespositoryImpl(provider: Get.find()));
-          Get.lazyPut(() => LoginController(loginRespository: Get.find()));
+          edenLazyPut<ILoginProvider>(() => LoginProvider());
+          edenLazyPut<ILoginRespository>(
+              () => LoginRespositoryImpl(provider: edenFind()));
+          edenLazyPut(() => LoginController(loginRespository: edenFind()));
         },
       ),
       routePage(
         name: register,
         page: () => RegisterIndex(),
         bindingsBuilder: () {
-          Get.lazyPut<IRegisterProvider>(() => RegisterProvider());
-          Get.lazyPut<IRegisterRespository>(
-              () => RegisterRespositoryImpl(provider: Get.find()));
-          Get.lazyPut(
-              () => RegisterController(registerRespository: Get.find()));
+          edenLazyPut<IRegisterProvider>(() => RegisterProvider());
+          edenLazyPut<IRegisterRespository>(
+              () => RegisterRespositoryImpl(provider: edenFind()));
+          edenLazyPut(
+              () => RegisterController(registerRespository: edenFind()));
         },
-      )
+      ),
+      routePage(
+          name: smsIndex,
+          page: () => SmsIndex(),
+          bindingsBuilder: () {
+            edenLazyPut(() => SmsController());
+          })
     ];
   }
 }

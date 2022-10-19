@@ -1,5 +1,5 @@
 import 'package:flrousale/app/routes/flroutes.dart';
-import 'package:flrousale/domain/repositories/impl/login/login_provider.dart';
+
 import 'package:flrousale/domain/repositories/login_respository.dart';
 import 'package:flutter_eden/eden.dart';
 
@@ -21,13 +21,11 @@ class LoginController extends EdenBaseController {
     _password = password;
   }
 
-  @override
-  Future doRequest(bool isPull) async {}
-
   void login() async {
     await showLoading(loginRespository.doLogin(username, password))
         .then((value) {
-      RouteCore.push(FLRoutes.account.register);
+      EdenRoute.push(FLRoutes.account.register,
+          parameters: {"phone": username ?? ""});
     });
   }
 

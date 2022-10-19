@@ -53,6 +53,10 @@ class LoginView {
           fontSize: 30.rpx,
         ),
         showBorder: false,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(11),
+          FilteringTextInputFormatter.allow(RegExp("[0123456789]"))
+        ],
         onChanged: (value) {
           _controller.setUsername(value);
         },
@@ -77,6 +81,10 @@ class LoginView {
                 fontSize: 30.rpx,
               ),
               showBorder: false,
+              inputFormatters: [
+                LengthLimitingTextInputFormatter(6),
+                FilteringTextInputFormatter.allow(RegExp("[0123456789]"))
+              ],
               onChanged: (value) {
                 _controller.setPassword(value);
               },

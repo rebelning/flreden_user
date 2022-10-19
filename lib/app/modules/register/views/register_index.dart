@@ -1,7 +1,9 @@
 import 'package:flrousale/app/modules/register/controllers/register_controller.dart';
+import 'package:flrousale/app/modules/register/views/register_view.dart';
 import 'package:flutter_eden/eden.dart';
 
-class RegisterIndex extends EdenBaseWidget<RegisterController> {
+class RegisterIndex extends EdenBaseWidget<RegisterController>
+    with RegisterView {
   @override
   String toolbarTitle() {
     return "注册";
@@ -9,6 +11,6 @@ class RegisterIndex extends EdenBaseWidget<RegisterController> {
 
   @override
   Widget buildBody(BuildContext context, RegisterController _controller) {
-    return Container();
+    return renderRegisterView(context, _controller);
   }
 }

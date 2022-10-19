@@ -14,7 +14,7 @@ class MessageRoute extends EdenBaseRoute {
         name: home,
         page: () => MessageIndex(),
         bindingsBuilder: () {
-          Get.lazyPut(() => MessageController());
+          edenLazyPut(() => MessageController());
         },
       ),
     ];
