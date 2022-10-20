@@ -48,9 +48,24 @@ flutter:
   # To add Flutter specific assets to your application, add an assets section,
   # like this:
   assets:
-    - packages/flrousale/values/images/account_bg.png
+    - packages/flrousale/values/images/flr_account_bg.png
+    - packages/flrousale/values/images/flr_has_price_icon.png
+    - packages/flrousale/values/images/flr_order_confirm_icon.png
+    - packages/flrousale/values/images/flr_order_delivery_icon.png
+    - packages/flrousale/values/images/flr_order_pay_icon.png
+    - packages/flrousale/values/images/flr_order_take_icon.png
+    - packages/flrousale/values/images/flr_over_price_icon.png
+
   
-    
+
+
+
+
+
+  fonts:
+    - family: FLRIcons
+      fonts:
+        - asset: packages/flrousale/values/fonts/flr_fonts.ttf  
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
