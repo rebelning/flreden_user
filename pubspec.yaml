@@ -55,6 +55,10 @@ flutter:
     - packages/flrousale/values/images/flr_order_pay_icon.png
     - packages/flrousale/values/images/flr_order_take_icon.png
     - packages/flrousale/values/images/flr_over_price_icon.png
+    - packages/flrousale/values/images/flr_about_icon.png
+    - packages/flrousale/values/images/flr_address_icon.png
+    - packages/flrousale/values/images/flr_setting_icon.png
+    - packages/flrousale/values/images/flr_cert_icon.png
 
   
 

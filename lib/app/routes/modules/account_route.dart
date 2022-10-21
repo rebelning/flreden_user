@@ -1,3 +1,9 @@
+import 'package:flrousale/app/modules/account/address/controllers/address_add_controller.dart';
+import 'package:flrousale/app/modules/account/address/controllers/address_managed_controller.dart';
+import 'package:flrousale/app/modules/account/address/views/address_add_view.dart';
+import 'package:flrousale/app/modules/account/address/views/address_managed_view.dart';
+import 'package:flrousale/app/modules/account/info/controllers/personal_controller.dart';
+import 'package:flrousale/app/modules/account/info/views/personal_index.dart';
 import 'package:flrousale/app/modules/login/controllers/login_controller.dart';
 import 'package:flrousale/app/modules/login/views/login_index.dart';
 import 'package:flrousale/app/modules/register/controllers/register_controller.dart';
@@ -26,6 +32,11 @@ class AccountRoute extends EdenBaseRoute {
 
   ///
   String get smsIndex => prefix + "/smsIndex";
+
+  String get personalIndex => prefix + "personalIndex";
+
+  String get addressAddView => prefix + "addressAddView";
+  String get addressManaged => prefix + "addressManaged";
 
   @override
   List<GetPage> getRoutePages() {
@@ -59,11 +70,39 @@ class AccountRoute extends EdenBaseRoute {
         },
       ),
       routePage(
-          name: smsIndex,
-          page: () => SmsIndex(),
-          bindingsBuilder: () {
-            edenLazyPut(() => SmsController());
-          })
+        name: smsIndex,
+        page: () => SmsIndex(),
+        bindingsBuilder: () {
+          edenLazyPut(() => SmsController());
+        },
+      ),
+
+      ///
+      routePage(
+        name: personalIndex,
+        page: () => PersonalIndex(),
+        bindingsBuilder: () {
+          edenLazyPut(() => PersonalController());
+        },
+      ),
+
+      ///
+      routePage(
+        name: addressManaged,
+        page: () => AddressManagedView(),
+        bindingsBuilder: () {
+          edenLazyPut(() => AddressManagedController());
+        },
+      ),
+
+      ///
+      routePage(
+        name: addressAddView,
+        page: () => AddressAddView(),
+        bindingsBuilder: () {
+          edenLazyPut(() => AddressAddController());
+        },
+      ),
     ];
   }
 }

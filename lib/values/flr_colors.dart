@@ -4,9 +4,10 @@ class FLRColors {
   FLRColors._();
   static Color white = const Color(0xffFFFFFF);
   static Color white40 = const Color(0xffFFFFFF).withOpacity(0.4);
-
+  static Color backroundColor = const Color(0xffF8F8F8);
   static Color black = const Color(0xff000000);
   static Color black05 = const Color(0xff000000).withOpacity(0.05);
+  static Color black06 = const Color(0xff000000).withOpacity(0.06);
   static Color black10 = const Color(0xff000000).withOpacity(0.10);
   static Color black20 = const Color(0xff000000).withOpacity(0.20);
   static Color black60 = const Color(0xff000000).withOpacity(0.60);

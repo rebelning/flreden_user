@@ -1,7 +1,9 @@
 import 'package:flrousale/app/modules/account/controllers/account_controller.dart';
+import 'package:flrousale/app/modules/account/model/menu_item.dart';
 import 'package:flrousale/flr_main.dart';
-import 'package:flrousale/values/flr_icons.dart';
+
 import 'package:flrousale/values/flr_images.dart';
+import 'package:flrousale/widgets/menu_item_view.dart';
 
 class AccountView {
   Widget renderView(
@@ -14,7 +16,10 @@ class AccountView {
         return <Widget>[
           SliverOverlapAbsorber(
             handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-            sliver: _renderSliverAppBar(innerBoxIsScrolled),
+            sliver: _renderSliverAppBar(
+              innerBoxIsScrolled,
+              _controller,
+            ),
           ),
         ];
       },
@@ -29,22 +34,32 @@ class AccountView {
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                    if (index == 0) {
+                    MenuItem? item = _controller.itemList![index];
+
+                    if (item.menuType == 0) {
                       return _renderCardView(
-                          () => _renderSectionView("我的商品", () {}),
+                          () => _renderSectionView("${item.title}", () {}),
                           _renderMyGoods);
-                    } else if (index == 1) {
+                    } else if (item.menuType == 1) {
                       return _renderCardView(
-                          () => _renderSectionView("我的报价", () {}),
+                          () => _renderSectionView("${item.title}", () {}),
                           _renderMyPrice);
-                    } else if (index == 2) {
+                    } else if (item.menuType == 2) {
                       return _renderCardView(
-                          () => _renderSectionView("我的订单", () {}),
+                          () => _renderSectionView("${item.title}", () {}),
                           _renderMyOrder);
+                    } else if (item.menuType == 3) {
+                      return MenuItemView(
+                        icon: item.icon,
+                        title: item.title,
+                        onPressed: () {
+                          _controller.onMenuItemView(item.route);
+                        },
+                      );
                     }
-                    return _renderItemView();
+                    return _renderEmptyItem();
                   },
-                  childCount: 20,
+                  childCount: _controller.itemList?.length,
                 ),
               ),
             ],
@@ -62,33 +77,18 @@ class AccountView {
     );
   }
 
-  _renderItemView() {
-    return Container(
-      color: FLRColors.white,
-      height: 94.rpx,
-      child: ListTile(
-        onTap: () {},
-        style: ListTileStyle.list,
-        selectedColor: FLRColors.black05,
-        title: Text("我的"),
-        trailing: Icon(
-          Icons.arrow_forward_ios_rounded,
-          // FLRIcons.bianji,
-          color: FLRColors.color252C3250,
-          size: 21.rpx,
-        ),
-      ),
-    );
-  }
-
-  _renderSliverAppBar(bool innerBoxIsScrolled) {
+  _renderSliverAppBar(
+    bool innerBoxIsScrolled,
+    AccountController _controller,
+  ) {
     return SliverAppBar(
       title: innerBoxIsScrolled == false
-          ? Text("")
+          ? const Text("")
           : Text('我的',
               style: TextStyle(
                 color: FLRColors.black,
-                fontSize: 44.rpx,
+                fontSize: 35.rpx,
+                fontWeight: FontWeight.w500,
               )),
       centerTitle: true,
       pinned: true,
@@ -112,13 +112,8 @@ class AccountView {
               ),
             ),
           ),
-          child: _renderSpaceBar(),
+          child: _renderSpaceBar(_controller),
         ),
-        // background: Image.asset(
-        //   FLRImages.account_background,
-        //   package: "flrousale",
-        //   fit: BoxFit.fill,
-        // ),
         collapseMode: CollapseMode.parallax,
         stretchModes: const [
           StretchMode.zoomBackground,
@@ -129,14 +124,16 @@ class AccountView {
     );
   }
 
-  Widget _renderSpaceBar() {
+  Widget _renderSpaceBar(
+    AccountController _controller,
+  ) {
     return Container(
       height: 210.rpx,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(height: kToolbarHeight.rpx),
-          _renderCompany(),
+          _renderCompany(_controller),
           // SizedBox(height: 42.rpx),
           // _renderMyGoods(),
         ],
@@ -144,12 +141,14 @@ class AccountView {
     );
   }
 
-  Widget _renderCompany() {
+  Widget _renderCompany(
+    AccountController _controller,
+  ) {
     return Container(
       child: Row(
         children: [
           _renderAvatar(),
-          _renderUserView(),
+          _renderUserView(_controller),
         ],
       ),
     );
@@ -179,7 +178,9 @@ class AccountView {
     );
   }
 
-  Widget _renderUserView() {
+  Widget _renderUserView(
+    AccountController _controller,
+  ) {
     return Container(
       padding: EdgeInsets.only(left: 21.rpx),
       child: Column(
@@ -188,7 +189,9 @@ class AccountView {
           Container(
             height: 60.rpx,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                _controller.onPersonalView();
+              },
               style: _textButtonStyle(),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -259,27 +262,29 @@ class AccountView {
     Function() onPressed,
   ) {
     return Container(
-      margin: EdgeInsets.all(22.rpx),
+      margin: EdgeInsets.only(left: 22.rpx, top: 22.rpx, bottom: 22.rpx),
       height: 38.rpx,
       child: Row(
         children: [
           Expanded(
-              child: Container(
-            child: Text(
-              "$section",
-              style: TextStyle(
-                color: FLRColors.black,
-                fontSize: 29.rpx,
-                fontWeight: FontWeight.w500,
+            child: Container(
+              child: Text(
+                "$section",
+                style: TextStyle(
+                  color: FLRColors.black,
+                  fontSize: 29.rpx,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-          )),
+          ),
           Container(
             alignment: Alignment.centerRight,
-            child: TextButton(
+            child: IconButton(
               onPressed: onPressed,
-              style: _textMoreButtonStyle(),
-              child: Row(
+              iconSize: 30.rpx,
+              padding: EdgeInsets.zero,
+              icon: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 mainAxisSize: MainAxisSize.min,
                 children: [
