@@ -5,7 +5,7 @@ class AddressManagedController extends EdenBaseController {
   void init() {}
 
   void addAddress() {
-    EdenRoute.push(FLRoutes.account.addressAddView);
+    EdenRoute.push(FLRoutes.auth.addressAddView);
   }
 
   @override

@@ -1,35 +1,106 @@
-import 'package:flrousale/app/modules/login/controllers/login_controller.dart';
+import 'package:flrousale/app/modules/auth/login/controllers/login_controller.dart';
 
 import 'package:flrousale/values/flr_colors.dart';
 import 'package:flutter_eden/eden.dart';
 
 class LoginView {
-  Widget renderLoginView(BuildContext context, LoginController _controller) {
+  ///
+  Widget renderMobileLoginView(
+      BuildContext context, LoginController _controller) {
     return Container(
       padding: EdgeInsets.only(left: 70.rpx, right: 70.rpx),
       child: ListView(
         children: [
           SizedBox(height: 170.rpx),
-          _renderLogo(context),
+          _renderLogo(
+            context,
+            _controller.sectionTitle,
+          ),
           SizedBox(height: 100.rpx),
-          _renderInput(context, _controller),
+
+          ///phone
+          _renderPhoneInput(context, (value) {
+            _controller.setPhone(value);
+          }),
           SizedBox(height: 20.rpx),
-          _renderCodeInput(context, _controller),
+
+          ///code
+          _renderCodeInput(context, (value) {
+            _controller.setVerifyCode(value);
+          }),
           SizedBox(height: 32.rpx),
           _renderPrivacyView(context),
           SizedBox(height: 100.rpx),
-          _renderComfirm(context, _controller),
+          _renderComfirm(context, () {
+            _controller.mobileLogin();
+          }),
           SizedBox(height: 50.rpx),
-          _renderTextComfirm(context),
+          _renderTextComfirm(
+            context,
+            "密码登录",
+            150.rpx,
+            () {
+              _controller.toUsernameLogin();
+            },
+          ),
         ],
       ),
     );
   }
 
-  Widget _renderLogo(BuildContext context) {
+  ///username login
+  Widget renderUsernameLoginView(
+      BuildContext context, LoginController _controller) {
+    return Container(
+      padding: EdgeInsets.only(left: 70.rpx, right: 70.rpx),
+      child: ListView(
+        children: [
+          SizedBox(height: 170.rpx),
+          _renderLogo(
+            context,
+            _controller.sectionTitle,
+          ),
+          SizedBox(height: 100.rpx),
+          _renderUsernameInput(context, (value) {
+            _controller.setUsername(value);
+          }),
+          SizedBox(height: 20.rpx),
+          _renderPasswordInput(context, (value) {
+            _controller.setPassword(value);
+          }),
+          SizedBox(height: 32.rpx),
+          _renderPrivacyView(context),
+          SizedBox(height: 100.rpx),
+          _renderComfirm(context, () {
+            _controller.usernameLogin();
+          }),
+          SizedBox(height: 52.rpx),
+          _renderTextComfirm(
+            context,
+            "短信验证码登录/注册",
+            300.rpx,
+            () {
+              _controller.toMobileLogin();
+            },
+          ),
+          SizedBox(height: 25.rpx),
+          _renderTextComfirm(
+            context,
+            "忘记密码",
+            150.rpx,
+            () {
+              _controller.forgetPassword();
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _renderLogo(BuildContext context, String? title) {
     return Container(
       child: Text(
-        "XXXXXXXXXX",
+        title ?? "",
         style: TextStyle(
           color: FLRColors.black,
           fontSize: 54.rpx,
@@ -39,14 +110,15 @@ class LoginView {
     );
   }
 
-  Widget _renderInput(BuildContext context, LoginController _controller) {
+  Widget _renderPhoneInput(
+      BuildContext context, Function(String value)? onChanged) {
     return Container(
       decoration: BoxDecoration(
         color: FLRColors.black04,
         borderRadius: BorderRadius.circular(16.rpx),
       ),
       height: 100.rpx,
-      child: CustomTextField(
+      child: InputWidget(
         placeholder: "请输入手机号码",
         textStyle: TextStyle(
           color: FLRColors.black,
@@ -57,14 +129,13 @@ class LoginView {
           LengthLimitingTextInputFormatter(11),
           FilteringTextInputFormatter.allow(RegExp("[0123456789]"))
         ],
-        onChanged: (value) {
-          _controller.setUsername(value);
-        },
+        onChanged: onChanged,
       ),
     );
   }
 
-  Widget _renderCodeInput(BuildContext context, LoginController _controller) {
+  Widget _renderCodeInput(
+      BuildContext context, Function(String value)? onChanged) {
     return Container(
       decoration: BoxDecoration(
         color: FLRColors.black04,
@@ -74,7 +145,7 @@ class LoginView {
       child: Row(
         children: [
           Expanded(
-            child: CustomTextField(
+            child: InputWidget(
               placeholder: "请输入验证码",
               textStyle: TextStyle(
                 color: FLRColors.black,
@@ -85,13 +156,66 @@ class LoginView {
                 LengthLimitingTextInputFormatter(6),
                 FilteringTextInputFormatter.allow(RegExp("[0123456789]"))
               ],
-              onChanged: (value) {
-                _controller.setPassword(value);
-              },
+              onChanged: onChanged,
             ),
           ),
           _renderVerifyCode(),
           SizedBox(width: 30.rpx),
+        ],
+      ),
+    );
+  }
+
+  Widget _renderUsernameInput(
+      BuildContext context, Function(String value)? onChanged) {
+    return Container(
+      decoration: BoxDecoration(
+        color: FLRColors.black04,
+        borderRadius: BorderRadius.circular(16.rpx),
+      ),
+      height: 100.rpx,
+      child: InputWidget(
+        placeholder: "请输入用户名",
+        textStyle: TextStyle(
+          color: FLRColors.black,
+          fontSize: 30.rpx,
+        ),
+        showBorder: false,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(11),
+          FilteringTextInputFormatter.allow(RegExp("^[a-z0-9A-Z]"))
+        ],
+        onChanged: onChanged,
+      ),
+    );
+  }
+
+  Widget _renderPasswordInput(
+      BuildContext context, Function(String value)? onChanged) {
+    return Container(
+      decoration: BoxDecoration(
+        color: FLRColors.black04,
+        borderRadius: BorderRadius.circular(16.rpx),
+      ),
+      height: 100.rpx,
+      child: Row(
+        children: [
+          Expanded(
+            child: InputWidget(
+              placeholder: "请输入登录密码",
+              obscureText: true,
+              textStyle: TextStyle(
+                color: FLRColors.black,
+                fontSize: 30.rpx,
+              ),
+              showBorder: false,
+              inputFormatters: [
+                LengthLimitingTextInputFormatter(6),
+                FilteringTextInputFormatter.allow(RegExp("^[a-z0-9A-Z.]"))
+              ],
+              onChanged: onChanged,
+            ),
+          ),
         ],
       ),
     );
@@ -208,7 +332,10 @@ class LoginView {
   }
 
   //
-  Widget _renderComfirm(BuildContext context, LoginController _controller) {
+  Widget _renderComfirm(
+    BuildContext context,
+    Function() onPressed,
+  ) {
     return Container(
       height: 95.rpx,
       child: ButtonWidget(
@@ -217,24 +344,27 @@ class LoginView {
         onPrimary: Colors.white,
         fontSize: 32.rpx,
         fontHeight: 1.2,
-        onPressed: () {
-          _controller.login();
-        },
+        onPressed: onPressed,
         buttonType: ButtonType.ELEVATED,
       ),
     );
   }
 
-  Widget _renderTextComfirm(BuildContext context) {
+  Widget _renderTextComfirm(
+    BuildContext context,
+    String? label,
+    double? width,
+    Function() onPwdLogin,
+  ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 150.rpx,
+          width: width,
           height: 60.rpx,
           child: TextButton(
-            onPressed: () {},
-            child: Text("密码登录"),
+            onPressed: onPwdLogin,
+            child: Text(label ?? ""),
             style: _textButtonStyle(),
           ),
         )

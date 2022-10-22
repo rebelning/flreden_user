@@ -43,7 +43,7 @@ class AccountController extends EdenBaseController {
         menuType: 3,
         title: "地址管理",
         icon: FLRImages.flr_address_icon,
-        route: FLRoutes.account.addressManaged,
+        route: FLRoutes.auth.addressManaged,
       ),
     );
     _itemList?.add(
@@ -60,6 +60,14 @@ class AccountController extends EdenBaseController {
         icon: FLRImages.flr_about_icon,
       ),
     );
+    _itemList?.add(
+      MenuItem(
+        menuType: 3,
+        title: "Proxy setting",
+        icon: FLRImages.flr_about_icon,
+        route: FLRoutes.eden.proxySeting,
+      ),
+    );
 
     ///
     for (int i = 0; i < 10; i++) {
@@ -73,7 +81,7 @@ class AccountController extends EdenBaseController {
   }
 
   void onPersonalView() {
-    EdenRoute.push(FLRoutes.account.personalIndex);
+    EdenRoute.push(FLRoutes.auth.personalIndex);
   }
 
   ///

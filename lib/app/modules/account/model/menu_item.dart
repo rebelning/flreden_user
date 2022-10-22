@@ -1,3 +1,5 @@
+import 'package:flrousale/app/routes/flroutes.dart';
+
 class MenuItem {
   int? menuType;
   String? title;
@@ -14,6 +16,6 @@ class MenuItem {
     this.icon,
     this.hideArrow = false,
     this.hideBorder = true,
-    this.route = "",
+    this.route = "/app/error/unknown404",
   });
 }

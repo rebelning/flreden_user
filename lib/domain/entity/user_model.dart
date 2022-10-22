@@ -1,12 +1,18 @@
 import 'dart:convert';
 
 class UserInfo {
+  String? token;
+  int? companyId;
+  int? companyNature;
   String? userId;
   String? username;
   String? mobile;
   String? address;
   String? accessToken;
   UserInfo({
+    this.token,
+    this.companyId,
+    this.companyNature,
     this.userId,
     this.username,
     this.mobile,
@@ -20,6 +26,9 @@ class UserInfo {
   String? toRawJson() => json.encode(toJson());
 
   factory UserInfo.fromJson(Map<String, dynamic> json) => UserInfo(
+        token: json["token"],
+        companyId: json["companyId"],
+        companyNature: json["companyNature"],
         userId: json["userId"],
         username: json["username"],
         mobile: json["mobile"],
@@ -28,6 +37,9 @@ class UserInfo {
       );
 
   Map<String, dynamic> toJson() => {
+        "token": token,
+        "companyId": companyId,
+        "companyNature": companyNature,
         "userId": userId,
         "username": username,
         "mobile": mobile,

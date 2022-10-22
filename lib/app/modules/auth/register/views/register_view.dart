@@ -1,4 +1,4 @@
-import 'package:flrousale/app/modules/register/controllers/register_controller.dart';
+import 'package:flrousale/app/modules/auth/register/controllers/register_controller.dart';
 import 'package:flrousale/flr_main.dart';
 
 class RegisterView {
@@ -9,25 +9,35 @@ class RegisterView {
       child: ListView(
         children: [
           SizedBox(height: 94.rpx),
-          _renderLogo(context),
+          _renderLogo(
+            context,
+            _controller.sectionTitle,
+          ),
           _renderDescribeView(context, _controller),
           SizedBox(height: 100.rpx),
-          _renderUsernameInput(context, _controller),
+          _renderUsernameInput(context, (value) {
+            _controller.setUsername(value);
+          }),
           SizedBox(height: 20.rpx),
-          _renderPwdInput(context, _controller),
+          _renderPwdInput(context, (value) {
+            _controller.setPassword(value);
+          }),
           SizedBox(height: 100.rpx),
-          _renderComfirm(context, _controller),
-          // SizedBox(height: 50.rpx),
-          // _renderTextComfirm(context),
+          _renderComfirm(context, () {
+            _controller.onRegister();
+          }),
         ],
       ),
     );
   }
 
-  Widget _renderLogo(BuildContext context) {
+  Widget _renderLogo(
+    BuildContext context,
+    String? title,
+  ) {
     return Container(
       child: Text(
-        "XXXXXXXXXX",
+        title ?? "",
         style: TextStyle(
           color: FLRColors.black,
           fontSize: 54.rpx,
@@ -55,7 +65,7 @@ class RegisterView {
 
   Widget _renderUsernameInput(
     BuildContext context,
-    RegisterController _controller,
+    Function(String) onChanged,
   ) {
     return Container(
       decoration: BoxDecoration(
@@ -63,23 +73,21 @@ class RegisterView {
         borderRadius: BorderRadius.circular(16.rpx),
       ),
       height: 100.rpx,
-      child: CustomTextField(
+      child: InputWidget(
         placeholder: "请输入用户名",
         textStyle: TextStyle(
           color: FLRColors.black,
           fontSize: 30.rpx,
         ),
         showBorder: false,
-        onChanged: (value) {
-          // _controller.setUsername(value);
-        },
+        onChanged: onChanged,
       ),
     );
   }
 
   Widget _renderPwdInput(
     BuildContext context,
-    RegisterController _controller,
+    Function(String) onChanged,
   ) {
     return Container(
       decoration: BoxDecoration(
@@ -87,16 +95,15 @@ class RegisterView {
         borderRadius: BorderRadius.circular(16.rpx),
       ),
       height: 100.rpx,
-      child: CustomTextField(
+      child: InputWidget(
         placeholder: "请输入密码",
+        obscureText: true,
         textStyle: TextStyle(
           color: FLRColors.black,
           fontSize: 30.rpx,
         ),
         showBorder: false,
-        onChanged: (value) {
-          // _controller.setUsername(value);
-        },
+        onChanged: onChanged,
       ),
     );
   }
@@ -104,7 +111,7 @@ class RegisterView {
   //
   Widget _renderComfirm(
     BuildContext context,
-    RegisterController _controller,
+    Function() onPressed,
   ) {
     return Container(
       height: 95.rpx,
@@ -114,9 +121,7 @@ class RegisterView {
         onPrimary: Colors.white,
         fontSize: 32.rpx,
         fontHeight: 1.2,
-        onPressed: () {
-          _controller.register();
-        },
+        onPressed: onPressed,
         buttonType: ButtonType.ELEVATED,
       ),
     );

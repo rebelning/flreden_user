@@ -10,10 +10,22 @@ class LoginRespositoryImpl implements ILoginRespository {
   });
 
   @override
-  Future<LoginModel?> doLogin(String? username, String? password) async {
-    final login = await provider.doLogin(username, password);
-    print("login.statusText=${login.statusText}");
-    print("login.statusText=${login.status.code}");
+  Future<LoginModel?> doMobileLogin(String? phone, String? code) async {
+    final login = await provider.doMobileLogin(phone, code);
+
+    if (login.status.hasError) {
+      return Future.error(login.statusText ?? "");
+    } else {
+      print("body=${login.body?.toJson()}");
+      return login.body;
+    }
+  }
+
+  @override
+  Future<LoginModel?> doUsernameLogin(
+      String? username, String? password) async {
+    final login = await provider.doUsernameLogin(username, password);
+
     if (login.status.hasError) {
       return Future.error(login.statusText ?? "");
     } else {
