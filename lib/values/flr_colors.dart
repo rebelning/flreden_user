@@ -10,6 +10,7 @@ class FLRColors {
   static Color black06 = const Color(0xff000000).withOpacity(0.06);
   static Color black10 = const Color(0xff000000).withOpacity(0.10);
   static Color black20 = const Color(0xff000000).withOpacity(0.20);
+  static Color black40 = const Color(0xff000000).withOpacity(0.40);
   static Color black60 = const Color(0xff000000).withOpacity(0.60);
   static Color black70 = const Color(0xff000000).withOpacity(0.70);
   static Color black04 = const Color(0xff000000).withOpacity(0.04);
@@ -23,4 +24,6 @@ class FLRColors {
   static Color color98CBFF = const Color(0xff98CBFF);
   static Color colorDEEEFF = const Color(0xffDEEEFF);
   static Color color63A7F2 = const Color(0xff63A7F2);
+  static Color colorE5E5E5 = const Color(0xffE5E5E5);
+  static Color colorFF4848 = const Color(0xffFF4848);
 }

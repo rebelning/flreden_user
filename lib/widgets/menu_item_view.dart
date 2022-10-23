@@ -5,6 +5,7 @@ class MenuItemView extends StatelessWidget {
   final String? icon;
   final String? title;
   final String? subTitle;
+  final Color? subTitleColor;
   final double? itemHeight;
   final bool? hideArrow;
   final bool? hideBorder;
@@ -13,6 +14,7 @@ class MenuItemView extends StatelessWidget {
     Key? key,
     this.title,
     this.subTitle,
+    this.subTitleColor,
     this.icon,
     this.hideArrow,
     this.hideBorder = true,
@@ -88,7 +90,7 @@ class MenuItemView extends StatelessWidget {
           child: Text(
             subTitle ?? "",
             style: TextStyle(
-              color: FLRColors.black,
+              color: subTitleColor ?? FLRColors.black,
               fontSize: 29.rpx,
               fontWeight: FontWeight.w500,
               height: 1.1,

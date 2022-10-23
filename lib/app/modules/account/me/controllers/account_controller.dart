@@ -43,7 +43,7 @@ class AccountController extends EdenBaseController {
         menuType: 3,
         title: "地址管理",
         icon: FLRImages.flr_address_icon,
-        route: FLRoutes.auth.addressManaged,
+        route: FLRoutes.account.addressManaged,
       ),
     );
     _itemList?.add(
@@ -51,6 +51,7 @@ class AccountController extends EdenBaseController {
         menuType: 3,
         title: "设置",
         icon: FLRImages.flr_setting_icon,
+        route: FLRoutes.account.settingIndex,
       ),
     );
     _itemList?.add(
@@ -81,7 +82,7 @@ class AccountController extends EdenBaseController {
   }
 
   void onPersonalView() {
-    EdenRoute.push(FLRoutes.auth.personalIndex);
+    EdenRoute.push(FLRoutes.account.personalIndex);
   }
 
   ///

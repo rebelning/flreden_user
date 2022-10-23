@@ -1,4 +1,6 @@
 import 'package:flrousale/app/routes/flroutes.dart';
+import 'package:flrousale/config/config_user.dart';
+import 'package:flrousale/domain/entity/register_model.dart';
 import 'package:flrousale/domain/repositories/register_respository.dart';
 import 'package:flutter_eden/eden.dart';
 
@@ -60,7 +62,7 @@ class RegisterController extends EdenBaseController {
         final code = value?.code;
         if (code == 0) {
           EdenSnackbar("注册成功", title: "提示");
-          _registerSuccess();
+          _registerSuccess(value);
         } else if (code == -2022) {
           EdenSnackbar("${value?.msg}", title: "提示");
         }
@@ -68,8 +70,9 @@ class RegisterController extends EdenBaseController {
     }
   }
 
-  void _registerSuccess() {
-    EdenRoute.replace(FLRoutes.auth.root);
+  void _registerSuccess(RegisterModel? register) {
+    ConfigUser.setRegisterInfo(register);
+    EdenRoute.offAndToNamed(FLRoutes.auth.root);
   }
 
   @override

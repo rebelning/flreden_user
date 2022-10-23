@@ -1,6 +1,6 @@
-import 'package:flrousale/app/modules/account/views/account_view.dart';
+import 'package:flrousale/app/modules/account/me/controllers/account_controller.dart';
+import 'package:flrousale/app/modules/account/me/views/account_view.dart';
 import 'package:flutter_eden/eden.dart';
-import 'package:flrousale/app/modules/account/controllers/account_controller.dart';
 
 ///
 class AccountIndex extends EdenBaseWidget<AccountController> with AccountView {

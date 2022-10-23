@@ -1,4 +1,4 @@
-import 'package:flrousale/app/modules/account/controllers/account_controller.dart';
+import 'package:flrousale/app/modules/account/me/controllers/account_controller.dart';
 import 'package:flrousale/app/modules/account/model/menu_item.dart';
 import 'package:flrousale/flr_main.dart';
 

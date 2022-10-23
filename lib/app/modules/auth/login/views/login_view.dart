@@ -25,11 +25,21 @@ class LoginView {
           SizedBox(height: 20.rpx),
 
           ///code
-          _renderCodeInput(context, (value) {
+          _renderCodeInput(
+              context, _controller.isSendCode, _controller.millCount, (value) {
             _controller.setVerifyCode(value);
+          }, () {
+            _controller.sendCode();
           }),
           SizedBox(height: 32.rpx),
-          _renderPrivacyView(context),
+
+          ///privacy
+          _renderPrivacyView(
+            _controller.isPrivacy,
+            () {
+              _controller.setPrivacy();
+            },
+          ),
           SizedBox(height: 100.rpx),
           _renderComfirm(context, () {
             _controller.mobileLogin();
@@ -69,7 +79,14 @@ class LoginView {
             _controller.setPassword(value);
           }),
           SizedBox(height: 32.rpx),
-          _renderPrivacyView(context),
+
+          ///privacy
+          _renderPrivacyView(
+            _controller.isPrivacy,
+            () {
+              _controller.setPrivacy();
+            },
+          ),
           SizedBox(height: 100.rpx),
           _renderComfirm(context, () {
             _controller.usernameLogin();
@@ -135,7 +152,12 @@ class LoginView {
   }
 
   Widget _renderCodeInput(
-      BuildContext context, Function(String value)? onChanged) {
+    BuildContext context,
+    bool? isSendCode,
+    int? countDown,
+    Function(String value)? onChanged,
+    Function() onPressed,
+  ) {
     return Container(
       decoration: BoxDecoration(
         color: FLRColors.black04,
@@ -159,7 +181,9 @@ class LoginView {
               onChanged: onChanged,
             ),
           ),
-          _renderVerifyCode(),
+          isSendCode == true
+              ? _renderVerifyCode(onPressed)
+              : _renderCountView(countDown),
           SizedBox(width: 30.rpx),
         ],
       ),
@@ -221,12 +245,22 @@ class LoginView {
     );
   }
 
-  Widget _renderVerifyCode() {
+  Widget _renderVerifyCode(Function() onPressed) {
     return Container(
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: _verifyButtonStyle(),
         child: Text("获取验证码"),
+      ),
+    );
+  }
+
+  Widget _renderCountView(int? count) {
+    return Container(
+      child: TextButton(
+        onPressed: null,
+        style: _verifyButtonStyle(),
+        child: Text("${count}s后重新获取"),
       ),
     );
   }
@@ -246,12 +280,15 @@ class LoginView {
     );
   }
 
-  Widget _renderPrivacyView(BuildContext context) {
+  Widget _renderPrivacyView(bool? isChecked, Function() onPressed) {
     return Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _renderCheckedView(context, false),
+          _renderCheckedView(
+            isChecked,
+            onPressed,
+          ),
           Container(
               padding: EdgeInsets.only(left: 15.rpx, right: 15.rpx),
               child: Wrap(
@@ -305,15 +342,17 @@ class LoginView {
   }
 
   Widget _renderCheckedView(
-    BuildContext context,
-    bool isChecked,
+    bool? isChecked,
+    Function() onPressed,
   ) {
-    return InkWell(
-      onTap: () {
-        // _onChecked();
-      },
-      child: Container(
-        child: Column(
+    return Container(
+      height: 44.rpx,
+      width: 44.rpx,
+      child: IconButton(
+        onPressed: onPressed,
+        iconSize: 44.rpx,
+        padding: EdgeInsets.zero,
+        icon: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
