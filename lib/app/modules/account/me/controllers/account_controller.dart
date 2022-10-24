@@ -4,12 +4,23 @@ import 'package:flrousale/values/flr_images.dart';
 import 'package:flutter_eden/eden.dart';
 
 class AccountController extends EdenBaseController {
+  final _refreshController = RefreshController();
+  RefreshController get refreshController => _refreshController;
   List<MenuItem>? _itemList = [];
 
   List<MenuItem>? get itemList => _itemList;
+
   @override
   void init() {
     _initMenuList();
+  }
+
+  ///
+  Future onRefresh() async {
+    // monitor network fetch
+
+    await Future.delayed(const Duration(seconds: 2));
+    _refreshController.refreshCompleted();
   }
 
   void _initMenuList() {

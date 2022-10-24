@@ -30,6 +30,7 @@ dependencies:
   
   flutter_eden:
     path: ../flutter_eden
+ 
 
 dev_dependencies:
   flutter_test:

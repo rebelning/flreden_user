@@ -10,6 +10,84 @@ class AccountView {
     BuildContext context,
     AccountController _controller,
   ) {
+    return ExtendedNestedScrollView(
+      onlyOneScrollInBody: true,
+      pinnedHeaderSliverHeightBuilder: () {
+        return MediaQuery.of(context).padding.top + kToolbarHeight;
+      },
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return <Widget>[
+          // SliverOverlapAbsorber(
+          //   handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+          //   sliver: _renderSliverAppBar(
+          //     innerBoxIsScrolled,
+          //     _controller,
+          //   ),
+          // ),
+          _renderSliverAppBar(
+            innerBoxIsScrolled,
+            _controller,
+          )
+        ];
+      },
+      body: Column(
+        children: [
+          Expanded(
+              child: ExtendedVisibilityDetector(
+            uniqueKey: const Key('nestedScrollView'),
+            child: SmartRefresher(
+              controller: _controller.refreshController,
+              onRefresh: _controller.onRefresh,
+              child: CustomScrollView(
+                slivers: [
+                  // SliverOverlapInjector(
+                  //   handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
+                  //       context),
+                  // ),
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        MenuItem? item = _controller.itemList![index];
+
+                        if (item.menuType == 0) {
+                          return _renderCardView(
+                              () => _renderSectionView("${item.title}", () {}),
+                              _renderMyGoods);
+                        } else if (item.menuType == 1) {
+                          return _renderCardView(
+                              () => _renderSectionView("${item.title}", () {}),
+                              _renderMyPrice);
+                        } else if (item.menuType == 2) {
+                          return _renderCardView(
+                              () => _renderSectionView("${item.title}", () {}),
+                              _renderMyOrder);
+                        } else if (item.menuType == 3) {
+                          return MenuItemView(
+                            icon: item.icon,
+                            title: item.title,
+                            onPressed: () {
+                              _controller.onMenuItemView(item.route);
+                            },
+                          );
+                        }
+                        return _renderEmptyItem();
+                      },
+                      childCount: _controller.itemList?.length,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )),
+        ],
+      ),
+    );
+  }
+
+  Widget renderView1(
+    BuildContext context,
+    AccountController _controller,
+  ) {
     return NestedScrollView(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         print("innerBoxIsScrolled=$innerBoxIsScrolled");
