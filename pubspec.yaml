@@ -1,5 +1,6 @@
 name: flrousale
 description: rou sale Flutter project.
+publish_to: 
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -18,7 +19,7 @@ description: rou sale Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.15.1 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -29,7 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   
   flutter_eden:
-    path: ../flutter_eden
+    git:
+      url: https://github.com/rebelning/flutter_eden.git
+      ref: master
  
 
 dev_dependencies:
@@ -107,5 +110,5 @@ flutter:
   # identifiers, which may be completely independent or the same as these.
   module:
     androidX: true
-    androidPackage: com.flrousale.flrousale
-    iosBundleIdentifier: com.flrousale.flrousale
+    androidPackage: com.flreden.user
+    iosBundleIdentifier: com.flreden.user

@@ -38,6 +38,6 @@ class AuthService extends EdenBaseService {
     EdenHttpHook.setError((value) {
       // print("httpHook-error=$value");
       EdenSnackbar(value.toString(), title: "错误");
-    });
+    }, (value) {});
   }
 }
