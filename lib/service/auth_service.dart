@@ -1,5 +1,5 @@
-import 'package:flrousale/domain/entity/user_model.dart';
-import 'package:flrousale/flr_main.dart';
+import 'package:flreden_user/domain/entity/user_model.dart';
+import 'package:flreden_user/flr_main.dart';
 
 class AuthService extends EdenBaseService {
   bool? _isLogin;

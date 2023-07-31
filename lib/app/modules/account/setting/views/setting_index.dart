@@ -1,7 +1,7 @@
-import 'package:flrousale/app/modules/account/setting/controllers/setting_controller.dart';
-import 'package:flrousale/flr_main.dart';
-import 'package:flrousale/widgets/menu_item_view.dart';
-import 'package:flrousale/widgets/switch_item_view.dart';
+import 'package:flreden_user/app/modules/account/setting/controllers/setting_controller.dart';
+import 'package:flreden_user/flr_main.dart';
+import 'package:flreden_user/widgets/menu_item_view.dart';
+import 'package:flreden_user/widgets/switch_item_view.dart';
 
 class SettingIndex extends EdenBaseWidget<SettingController> {
   @override

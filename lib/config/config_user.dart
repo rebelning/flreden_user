@@ -1,7 +1,7 @@
-import 'package:flrousale/domain/entity/login_model.dart';
-import 'package:flrousale/domain/entity/register_model.dart';
-import 'package:flrousale/domain/entity/user_model.dart';
-import 'package:flrousale/service/auth_service.dart';
+import 'package:flreden_user/domain/entity/login_model.dart';
+import 'package:flreden_user/domain/entity/register_model.dart';
+import 'package:flreden_user/domain/entity/user_model.dart';
+import 'package:flreden_user/service/auth_service.dart';
 import 'package:flutter_eden/eden.dart';
 
 import 'constants.dart';

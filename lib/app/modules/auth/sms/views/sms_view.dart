@@ -1,5 +1,5 @@
-import 'package:flrousale/app/modules/auth/sms/controllers/sms_controller.dart';
-import 'package:flrousale/flr_main.dart';
+import 'package:flreden_user/app/modules/auth/sms/controllers/sms_controller.dart';
+import 'package:flreden_user/flr_main.dart';
 
 class SmsView {
   Widget renderSmsView(

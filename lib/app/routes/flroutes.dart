@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flrousale/app/routes/modules/account_route.dart';
+import 'package:flreden_user/app/routes/modules/account_route.dart';
 import 'package:flutter_eden/eden.dart';
 
 import 'modules/auth_route.dart';

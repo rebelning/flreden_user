@@ -1,10 +1,10 @@
-import 'package:flrousale/app/routes/flroutes.dart';
-import 'package:flrousale/config/config_user.dart';
-import 'package:flrousale/domain/entity/login_model.dart';
-import 'package:flrousale/domain/entity/sms_model.dart';
+import 'package:flreden_user/app/routes/flroutes.dart';
+import 'package:flreden_user/config/config_user.dart';
+import 'package:flreden_user/domain/entity/login_model.dart';
+import 'package:flreden_user/domain/entity/sms_model.dart';
 
-import 'package:flrousale/domain/repositories/login_respository.dart';
-import 'package:flrousale/utils/flr_utils.dart';
+import 'package:flreden_user/domain/repositories/login_respository.dart';
+import 'package:flreden_user/utils/flr_utils.dart';
 import 'package:flutter_eden/eden.dart';
 
 class LoginController extends EdenBaseController with FLRUtils {

@@ -1,5 +1,5 @@
-import 'package:flrousale/domain/entity/login_model.dart';
-import 'package:flrousale/domain/entity/sms_model.dart';
+import 'package:flreden_user/domain/entity/login_model.dart';
+import 'package:flreden_user/domain/entity/sms_model.dart';
 
 abstract class ILoginRespository {
   ///login

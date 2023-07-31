@@ -1,16 +1,16 @@
-import 'package:flrousale/app/modules/auth/login/controllers/login_controller.dart';
-import 'package:flrousale/app/modules/auth/login/views/login_index.dart';
-import 'package:flrousale/app/modules/auth/register/controllers/register_controller.dart';
-import 'package:flrousale/app/modules/auth/register/views/register_index.dart';
-import 'package:flrousale/app/modules/auth/sms/controllers/sms_controller.dart';
-import 'package:flrousale/app/modules/auth/sms/views/sms_index.dart';
+import 'package:flreden_user/app/modules/auth/login/controllers/login_controller.dart';
+import 'package:flreden_user/app/modules/auth/login/views/login_index.dart';
+import 'package:flreden_user/app/modules/auth/register/controllers/register_controller.dart';
+import 'package:flreden_user/app/modules/auth/register/views/register_index.dart';
+import 'package:flreden_user/app/modules/auth/sms/controllers/sms_controller.dart';
+import 'package:flreden_user/app/modules/auth/sms/views/sms_index.dart';
 
-import 'package:flrousale/domain/repositories/impl/login/login_provider.dart';
-import 'package:flrousale/domain/repositories/impl/login/login_respository_impl.dart';
-import 'package:flrousale/domain/repositories/impl/register/register_provider.dart';
-import 'package:flrousale/domain/repositories/impl/register/register_respository_impl.dart';
-import 'package:flrousale/domain/repositories/login_respository.dart';
-import 'package:flrousale/domain/repositories/register_respository.dart';
+import 'package:flreden_user/domain/repositories/impl/login/login_provider.dart';
+import 'package:flreden_user/domain/repositories/impl/login/login_respository_impl.dart';
+import 'package:flreden_user/domain/repositories/impl/register/register_provider.dart';
+import 'package:flreden_user/domain/repositories/impl/register/register_respository_impl.dart';
+import 'package:flreden_user/domain/repositories/login_respository.dart';
+import 'package:flreden_user/domain/repositories/register_respository.dart';
 import 'package:flutter_eden/eden.dart';
 
 class AuthRoute extends EdenBaseRoute {

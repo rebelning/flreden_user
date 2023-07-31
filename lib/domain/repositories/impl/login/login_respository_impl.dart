@@ -1,7 +1,7 @@
-import 'package:flrousale/domain/entity/login_model.dart';
-import 'package:flrousale/domain/entity/sms_model.dart';
-import 'package:flrousale/domain/repositories/impl/login/login_provider.dart';
-import 'package:flrousale/domain/repositories/login_respository.dart';
+import 'package:flreden_user/domain/entity/login_model.dart';
+import 'package:flreden_user/domain/entity/sms_model.dart';
+import 'package:flreden_user/domain/repositories/impl/login/login_provider.dart';
+import 'package:flreden_user/domain/repositories/login_respository.dart';
 
 class LoginRespositoryImpl implements ILoginRespository {
   final ILoginProvider provider;

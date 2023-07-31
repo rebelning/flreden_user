@@ -1,13 +1,13 @@
-import 'package:flrousale/app/modules/account/address/controllers/address_add_controller.dart';
-import 'package:flrousale/app/modules/account/address/controllers/address_managed_controller.dart';
-import 'package:flrousale/app/modules/account/address/views/address_add_view.dart';
-import 'package:flrousale/app/modules/account/address/views/address_managed_view.dart';
-import 'package:flrousale/app/modules/account/info/controllers/personal_controller.dart';
-import 'package:flrousale/app/modules/account/info/views/personal_index.dart';
-import 'package:flrousale/app/modules/account/me/controllers/account_controller.dart';
-import 'package:flrousale/app/modules/account/me/views/account_index.dart';
-import 'package:flrousale/app/modules/account/setting/controllers/setting_controller.dart';
-import 'package:flrousale/app/modules/account/setting/views/setting_index.dart';
+import 'package:flreden_user/app/modules/account/address/controllers/address_add_controller.dart';
+import 'package:flreden_user/app/modules/account/address/controllers/address_managed_controller.dart';
+import 'package:flreden_user/app/modules/account/address/views/address_add_view.dart';
+import 'package:flreden_user/app/modules/account/address/views/address_managed_view.dart';
+import 'package:flreden_user/app/modules/account/info/controllers/personal_controller.dart';
+import 'package:flreden_user/app/modules/account/info/views/personal_index.dart';
+import 'package:flreden_user/app/modules/account/me/controllers/account_controller.dart';
+import 'package:flreden_user/app/modules/account/me/views/account_index.dart';
+import 'package:flreden_user/app/modules/account/setting/controllers/setting_controller.dart';
+import 'package:flreden_user/app/modules/account/setting/views/setting_index.dart';
 
 import 'package:flutter_eden/eden.dart';
 

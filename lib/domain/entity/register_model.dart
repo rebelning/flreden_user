@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flrousale/domain/entity/user_model.dart';
+import 'package:flreden_user/domain/entity/user_model.dart';
 
 class RegisterModel {
   int? code;

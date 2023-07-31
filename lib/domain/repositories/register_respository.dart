@@ -1,4 +1,4 @@
-import 'package:flrousale/domain/entity/register_model.dart';
+import 'package:flreden_user/domain/entity/register_model.dart';
 
 abstract class IRegisterRespository {
   Future<RegisterModel?> doRegister(

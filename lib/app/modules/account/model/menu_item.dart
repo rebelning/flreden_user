@@ -1,4 +1,4 @@
-import 'package:flrousale/app/routes/flroutes.dart';
+import 'package:flreden_user/app/routes/flroutes.dart';
 
 class MenuItem {
   int? menuType;

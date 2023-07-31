@@ -1,5 +1,5 @@
-import 'package:flrousale/app/modules/account/model/menu_item.dart';
-import 'package:flrousale/flr_main.dart';
+import 'package:flreden_user/app/modules/account/model/menu_item.dart';
+import 'package:flreden_user/flr_main.dart';
 
 class PersonalController extends EdenBaseController {
   final List<MenuItem>? _itemList = [];

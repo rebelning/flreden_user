@@ -1,5 +1,5 @@
-import 'package:flrousale/app/modules/auth/register/controllers/register_controller.dart';
-import 'package:flrousale/app/modules/auth/register/views/register_view.dart';
+import 'package:flreden_user/app/modules/auth/register/controllers/register_controller.dart';
+import 'package:flreden_user/app/modules/auth/register/views/register_view.dart';
 import 'package:flutter_eden/eden.dart';
 
 class RegisterIndex extends EdenBaseWidget<RegisterController>

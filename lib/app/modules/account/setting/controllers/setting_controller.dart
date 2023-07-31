@@ -1,5 +1,5 @@
-import 'package:flrousale/flr_main.dart';
-import 'package:flrousale/service/auth_service.dart';
+import 'package:flreden_user/flr_main.dart';
+import 'package:flreden_user/service/auth_service.dart';
 
 class SettingController extends EdenBaseController {
   String? _waringText;

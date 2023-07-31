@@ -1,5 +1,5 @@
-import 'package:flrousale/app/modules/account/address/controllers/address_managed_controller.dart';
-import 'package:flrousale/flr_main.dart';
+import 'package:flreden_user/app/modules/account/address/controllers/address_managed_controller.dart';
+import 'package:flreden_user/flr_main.dart';
 
 class AddressManagedView extends EdenBaseWidget<AddressManagedController> {
   @override

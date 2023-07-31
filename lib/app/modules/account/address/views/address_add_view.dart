@@ -1,4 +1,4 @@
-import 'package:flrousale/app/modules/account/address/controllers/address_add_controller.dart';
+import 'package:flreden_user/app/modules/account/address/controllers/address_add_controller.dart';
 import 'package:flutter_eden/eden.dart';
 
 class AddressAddView extends EdenBaseWidget<AddressAddController> {

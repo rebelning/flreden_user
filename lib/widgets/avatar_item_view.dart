@@ -1,4 +1,4 @@
-import 'package:flrousale/flr_main.dart';
+import 'package:flreden_user/flr_main.dart';
 
 ///
 class AvatarItemView extends StatelessWidget {

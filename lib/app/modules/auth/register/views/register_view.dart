@@ -1,5 +1,5 @@
-import 'package:flrousale/app/modules/auth/register/controllers/register_controller.dart';
-import 'package:flrousale/flr_main.dart';
+import 'package:flreden_user/app/modules/auth/register/controllers/register_controller.dart';
+import 'package:flreden_user/flr_main.dart';
 
 class RegisterView {
   Widget renderRegisterView(

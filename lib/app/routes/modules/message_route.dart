@@ -1,6 +1,6 @@
 import 'package:flutter_eden/eden.dart';
-import 'package:flrousale/app/modules/message/controllers/message_controller.dart';
-import 'package:flrousale/app/modules/message/views/message_index.dart';
+import 'package:flreden_user/app/modules/message/controllers/message_controller.dart';
+import 'package:flreden_user/app/modules/message/views/message_index.dart';
 
 ///
 class MessageRoute extends EdenBaseRoute {

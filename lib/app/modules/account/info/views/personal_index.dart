@@ -1,8 +1,8 @@
-import 'package:flrousale/app/modules/account/info/controllers/personal_controller.dart';
-import 'package:flrousale/app/modules/account/model/menu_item.dart';
-import 'package:flrousale/flr_main.dart';
-import 'package:flrousale/widgets/avatar_item_view.dart';
-import 'package:flrousale/widgets/menu_item_view.dart';
+import 'package:flreden_user/app/modules/account/info/controllers/personal_controller.dart';
+import 'package:flreden_user/app/modules/account/model/menu_item.dart';
+import 'package:flreden_user/flr_main.dart';
+import 'package:flreden_user/widgets/avatar_item_view.dart';
+import 'package:flreden_user/widgets/menu_item_view.dart';
 
 class PersonalIndex extends EdenBaseWidget<PersonalController> {
   @override

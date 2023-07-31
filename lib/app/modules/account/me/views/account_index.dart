@@ -1,5 +1,5 @@
-import 'package:flrousale/app/modules/account/me/controllers/account_controller.dart';
-import 'package:flrousale/app/modules/account/me/views/account_view.dart';
+import 'package:flreden_user/app/modules/account/me/controllers/account_controller.dart';
+import 'package:flreden_user/app/modules/account/me/views/account_view.dart';
 import 'package:flutter_eden/eden.dart';
 
 ///

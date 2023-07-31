@@ -1,6 +1,6 @@
-import 'package:flrousale/app/modules/auth/sms/views/sms_view.dart';
-import 'package:flrousale/app/modules/auth/sms/controllers/sms_controller.dart';
-import 'package:flrousale/flr_main.dart';
+import 'package:flreden_user/app/modules/auth/sms/views/sms_view.dart';
+import 'package:flreden_user/app/modules/auth/sms/controllers/sms_controller.dart';
+import 'package:flreden_user/flr_main.dart';
 
 class SmsIndex extends EdenBaseWidget<SmsController> with SmsView {
   @override

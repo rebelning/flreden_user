@@ -1,6 +1,6 @@
-import 'package:flrousale/app/modules/auth/login/controllers/login_controller.dart';
+import 'package:flreden_user/app/modules/auth/login/controllers/login_controller.dart';
 
-import 'package:flrousale/values/flr_colors.dart';
+import 'package:flreden_user/values/flr_colors.dart';
 import 'package:flutter_eden/eden.dart';
 
 class LoginView {

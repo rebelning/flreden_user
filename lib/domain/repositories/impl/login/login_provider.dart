@@ -1,6 +1,6 @@
-import 'package:flrousale/domain/base/flr_end_points.dart';
-import 'package:flrousale/domain/entity/login_model.dart';
-import 'package:flrousale/domain/entity/sms_model.dart';
+import 'package:flreden_user/domain/base/flr_end_points.dart';
+import 'package:flreden_user/domain/entity/login_model.dart';
+import 'package:flreden_user/domain/entity/sms_model.dart';
 import 'package:flutter_eden/eden.dart';
 
 abstract class ILoginProvider {

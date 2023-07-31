@@ -1,5 +1,5 @@
-import 'package:flrousale/domain/entity/menu_model.dart';
-import 'package:flrousale/domain/flr_domain.dart';
+import 'package:flreden_user/domain/entity/menu_model.dart';
+import 'package:flreden_user/domain/flr_domain.dart';
 import 'package:flutter_eden/eden.dart';
 
 abstract class IAccountPorvider {

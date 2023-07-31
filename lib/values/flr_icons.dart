@@ -19,7 +19,7 @@ class FLRIcons {
   FLRIcons._();
 
   static const _kFontFam = 'FLRIcons';
-  static const String? _kFontPkg = "flrousale";
+  static const String? _kFontPkg = "flreden_user";
 
   static const IconData bianji =
       IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);

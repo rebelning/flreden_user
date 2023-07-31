@@ -1,6 +1,6 @@
-import 'package:flrousale/app/modules/account/model/menu_item.dart';
-import 'package:flrousale/app/routes/flroutes.dart';
-import 'package:flrousale/values/flr_images.dart';
+import 'package:flreden_user/app/modules/account/model/menu_item.dart';
+import 'package:flreden_user/app/routes/flroutes.dart';
+import 'package:flreden_user/values/flr_images.dart';
 import 'package:flutter_eden/eden.dart';
 
 class AccountController extends EdenBaseController {

@@ -1,7 +1,7 @@
-import 'package:flrousale/domain/entity/register_model.dart';
+import 'package:flreden_user/domain/entity/register_model.dart';
 
-import 'package:flrousale/domain/repositories/impl/register/register_provider.dart';
-import 'package:flrousale/domain/repositories/register_respository.dart';
+import 'package:flreden_user/domain/repositories/impl/register/register_provider.dart';
+import 'package:flreden_user/domain/repositories/register_respository.dart';
 
 class RegisterRespositoryImpl implements IRegisterRespository {
   final IRegisterProvider provider;

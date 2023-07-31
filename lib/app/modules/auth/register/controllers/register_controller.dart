@@ -1,7 +1,7 @@
-import 'package:flrousale/app/routes/flroutes.dart';
-import 'package:flrousale/config/config_user.dart';
-import 'package:flrousale/domain/entity/register_model.dart';
-import 'package:flrousale/domain/repositories/register_respository.dart';
+import 'package:flreden_user/app/routes/flroutes.dart';
+import 'package:flreden_user/config/config_user.dart';
+import 'package:flreden_user/domain/entity/register_model.dart';
+import 'package:flreden_user/domain/repositories/register_respository.dart';
 import 'package:flutter_eden/eden.dart';
 
 class RegisterController extends EdenBaseController {

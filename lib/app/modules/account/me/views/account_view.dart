@@ -1,9 +1,9 @@
-import 'package:flrousale/app/modules/account/me/controllers/account_controller.dart';
-import 'package:flrousale/app/modules/account/model/menu_item.dart';
-import 'package:flrousale/flr_main.dart';
+import 'package:flreden_user/app/modules/account/me/controllers/account_controller.dart';
+import 'package:flreden_user/app/modules/account/model/menu_item.dart';
+import 'package:flreden_user/flr_main.dart';
 
-import 'package:flrousale/values/flr_images.dart';
-import 'package:flrousale/widgets/menu_item_view.dart';
+import 'package:flreden_user/values/flr_images.dart';
+import 'package:flreden_user/widgets/menu_item_view.dart';
 
 class AccountView {
   Widget renderView(

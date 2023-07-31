@@ -1,6 +1,6 @@
-import 'package:flrousale/domain/entity/menu_model.dart';
-import 'package:flrousale/domain/repositories/account_respository.dart';
-import 'package:flrousale/domain/repositories/impl/account/account_provider.dart';
+import 'package:flreden_user/domain/entity/menu_model.dart';
+import 'package:flreden_user/domain/repositories/account_respository.dart';
+import 'package:flreden_user/domain/repositories/impl/account/account_provider.dart';
 
 class AccountRespositoryImpl implements IAccountRespository {
   final IAccountPorvider porvider;
